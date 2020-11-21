@@ -1,0 +1,113 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MinecraftTable</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <h1>MinecraftTable</h1>
+    <section class="memory-game">
+      <div class="memory-card" data-framework="react">
+        <img class="front-face" src="img/mc.jpg" id="1" />
+        <img class="back-face" src="img/mc.jpg" alt="Memory Card"  />
+      </div>
+
+      <div class="memory-card" data-framework="react">
+        <img class="front-face" src="img/mc.jpg" id="2" />
+        <img class="back-face" src="img/mc.jpg" alt="Memory Card"  />
+      </div>
+
+      <div class="memory-card" data-framework="angular">
+        <img class="front-face" src="img/mc.jpg" id="3"/>
+        <img class="back-face" src="img/mc.jpg" alt="Memory Card" />
+      </div>
+
+      <div class="memory-card" data-framework="angular">
+        <img class="front-face" src="img/mc.jpg" id="4" />
+        <img class="back-face" src="img/mc.jpg" alt="Memory Card" />
+      </div>
+    
+    </section>
+   
+    
+   <script>
+      function Card(n,l,a,src){
+        this.name= n ;
+        this.life=l;
+        this.attack=a;
+        this.src=src;
+        this.report=function(i){
+          // alert(this.name+this.life)
+          document.write(this.name+this.life);         
+          document.getElementById(i).src =src;
+          
+          
+          
+        };
+      }
+      
+      function born(i){
+       document.write(i);
+        if(Math.floor(Math.random()*100)>70){
+         creeper.report(i);
+        }
+        else if (Math.floor(Math.random()*100)<40) {
+          zombie.report(i);
+        }
+        else{
+         skeleton.report(i);
+        }
+
+
+      };
+
+      var role1=new Card("abc",3,1,);
+      var creeper=new Card("creeper",3,1,'img/Creeper_JE3_BE1.png');
+      var zombie=new Card("Zombie",3,1,'img/Zombie_Targeting.png');
+      var skeleton=new Card("Skeleton",3,1,'img/Skeleton_Aiming.png');
+        
+      for (i = 1; i<5; i++) { 
+        
+        born(i);
+        
+        };
+
+      // 翻牌
+      const cards = document.querySelectorAll('.memory-card');
+      cards.forEach(card => card.addEventListener('click', flipCard));
+      
+
+      function flipCard() {
+        
+        this.classList.add('flip');
+
+        if (!hasFlippedCard) {
+          hasFlippedCard = true;
+          firstCard = this; 
+          return;
+        }
+
+  secondCard = this;
+
+  checkForMatch();
+}
+
+
+         
+        
+      
+        
+      
+      
+
+      
+
+
+  
+   </script>
+  </body>
+</html>
